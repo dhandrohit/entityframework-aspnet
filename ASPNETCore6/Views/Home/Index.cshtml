@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    List<TestDept> depts = ViewBag.depts;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            @{
+                if (@depts.Any())
+                {
+                    foreach(TestDept dept in ViewBag.depts)
+                    {
+                        <tr>
+                            <td>@dept.Id</td>
+                            <td>@dept.Dname</td>
+                        </tr>
+                    }
+                }
+                
+            }
+        </tbody>
+    </table>
+</div>
